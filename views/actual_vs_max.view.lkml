@@ -98,42 +98,42 @@ view: test_actual_vs_max {
   }
 
   measure: bops_units_inprocess {
-    type: number
+    type: sum
     sql: ${TABLE}.BOPS_SDD_Units_Inprocess ;;
     drill_fields: [location.Region,location.District,location.Store,bops_units_inprocess]
   }
 
   measure: bops_units_not_ready {
-    type: number
+    type: sum
     sql: ${TABLE}.BOPS_SDD_Units_Not_Ready ;;
     drill_fields: [location.Region,location.District,location.Store,bops_units_not_ready]
   }
 
   measure: bops_units_printed {
-    type: number
+    type: sum
     sql: ${TABLE}.BOPS_SDD_Units_Printed ;;
     drill_fields: [location.Region,location.District,location.Store,bops_units_printed]
   }
   measure: shippabl_in_process {
-    type: number
+    type: sum
     sql: ${TABLE}.Shippable_In_Process ;;
     drill_fields: [location.Region,location.District,location.Store,shippabl_in_process]
   }
 
   measure: shippabl_printed {
-    type: number
+    type: sum
     sql: ${TABLE}.Shippable_Printed ;;
     drill_fields: [location.Region,location.District,location.Store,shippabl_printed]
   }
 
   measure: shippabl_unshipped {
-    type: number
+    type: sum
     sql: ${TABLE}.Shippable_Unshipped ;;
     drill_fields: [location.Region,location.District,location.Store,shippabl_unshipped]
   }
 
   measure: shippabl_unshipped_dedicated_fulfillment {
-    type: number
+    type: sum
     sql: ${TABLE}.Shippable_Unshipped_Dedicated_Fulfillment ;;
     drill_fields: [location.Region,location.District,location.Store,shippabl_unshipped_dedicated_fulfillment]
   }

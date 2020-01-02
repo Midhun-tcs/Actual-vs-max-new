@@ -49,12 +49,12 @@ view: location {
   }
 
   measure: max_pick {
-    type: count_distinct
+    type: sum_distinct
     sql: ${max_picks} ;;
     drill_fields: [Region]
   }
   measure: oper_max_pick {
-    type: count_distinct
+    type: sum_distinct
     sql: ${ops_max_picks} ;;
     drill_fields: [Region]
   }

@@ -150,23 +150,23 @@ view: test_actual_vs_max {
     drill_fields: [location.Region,location.District,location.Store]
   }
   measure: shippabl_total {
-    type: number
-    sql: ${shippabl_unshipped}+${shippable_in_process}+${shippable_printed} ;;
+    type: sum
+    sql: ${TABLE}.Shippable_In_Process+${TABLE}.Shippable_Printed+${TABLE}.Shippable_Unshipped ;;
     drill_fields: [location.Region,location.District,location.Store]
   }
   measure: shippabl_fulfilld {
     type: number
-    sql: ${shippable_printed}/${shippabl_total} ;;
-    drill_fields: [location.Region,location.District,location.Store,shippabl_unshipped]
+    sql: ${shippabl_printed}/${shippabl_total} ;;
+    drill_fields: [location.Region,location.District,location.Store]
   }
   measure: bops_total {
-    type: number
-    sql: ${bops_units_inprocess}+${bops_units_not_ready}+${bops_units_printed} ;;
+    type: sum
+    sql: ${TABLE}.BOPS_SDD_Units_Inprocess+${TABLE}.BOPS_SDD_Units_Not_Ready+${TABLE}.BOPS_SDD_Units_Printed ;;
     drill_fields: [location.Region,location.District,location.Store]
   }
   measure: bops_fulfilld {
     type: number
     sql: ${bops_units_printed}/${bops_total} ;;
-    drill_fields: [location.Region,location.District,location.Store,shippabl_unshipped]
+    drill_fields: [location.Region,location.District,location.Store]
   }
 }

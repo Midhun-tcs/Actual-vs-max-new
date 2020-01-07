@@ -149,4 +149,24 @@ view: test_actual_vs_max {
     value_format: "0.00%"
     drill_fields: [location.Region,location.District,location.Store]
   }
+  measure: shippabl_total {
+    type: number
+    sql: ${shippabl_unshipped}+${shippable_in_process}+${shippable_printed} ;;
+    drill_fields: [location.Region,location.District,location.Store]
+  }
+  measure: shippabl_fulfilld {
+    type: number
+    sql: ${shippable_printed}/${shippabl_total} ;;
+    drill_fields: [location.Region,location.District,location.Store,shippabl_unshipped]
+  }
+  measure: bops_total {
+    type: number
+    sql: ${bops_units_inprocess}+${bops_units_not_ready}+${bops_units_printed} ;;
+    drill_fields: [location.Region,location.District,location.Store]
+  }
+  measure: bops_fulfilld {
+    type: number
+    sql: ${bops_units_printed}/${bops_total} ;;
+    drill_fields: [location.Region,location.District,location.Store,shippabl_unshipped]
+  }
 }
